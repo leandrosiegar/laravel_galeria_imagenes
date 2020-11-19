@@ -21,7 +21,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/admin'; // para q al loguearse o registrarse se llama a esa url en vez de al home
 
     /**
      * Define your route model bindings, pattern filters, etc.

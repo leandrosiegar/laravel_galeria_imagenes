@@ -36,4 +36,9 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // un usuario puede subir muchos ficheros
+    public function files() {
+        return $this->hasMany('App\File');
+    }
 }
