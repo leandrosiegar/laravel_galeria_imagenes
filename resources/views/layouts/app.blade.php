@@ -9,8 +9,7 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -18,6 +17,7 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('css_lsg')
 </head>
 <body>
     <div id="app">
@@ -37,12 +37,17 @@
                         <a href="{{ route('admin.home')}}" class="nav-link">dashboard</a>
                         </li>
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle {{ request()->routeIs('admin.files.*') ? 'active' : '' }}" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle
+                              {{ request()->routeIs('admin.files.*') ? 'active' : '' }}"
+                              href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                              aria-haspopup="true" aria-expanded="false">
                               Imágenes
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item {{ request()->routeIs('admin.files.index') ? 'active' : '' }}" href="{{ route('admin.files.index') }}">Ver imágenes</a>
-                              <a class="dropdown-item" href="{{ route('admin.files.create') }}">Crear imágenes</a>
+                            <a class="dropdown-item {{ request()->routeIs('admin.files.index') ? 'active' : '' }}"
+                                href="{{ route('admin.files.index') }}">Ver imágenes</a>
+                            <a class="dropdown-item {{ request()->routeIs('admin.files.create') ? 'active' : '' }}"
+                                href="{{ route('admin.files.create') }}">Crear imágenes</a>
 
                             </div>
                           </li>
@@ -88,5 +93,9 @@
             @yield('content')
         </main>
     </div>
+
+    <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}"></script>
+    @yield('js_lsg')
 </body>
 </html>
