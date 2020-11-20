@@ -14,15 +14,18 @@ use App\File;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
 
 Auth::routes();
 
 
-Route::get('/home', 'admin\HomeController@index')->name('admin.home');
+// Route::get('/home', 'admin\HomeController@index')->name('admin.home');
 
+Route::group(['prefix' => 'admin', 'namespace' => 'admin', 'middleware' => 'auth'], function () {
+    Route::get('/', 'HomeController@index')->name('admin.home');
+    Route::resource('/files', 'FileController')->names('admin.files');
+});
+/*
 Route::get('/admin', 'admin\HomeController@index')->name('admin.home');
-
 Route::resource('/admin/files', 'admin\FileController')->names('admin.files');
+*/

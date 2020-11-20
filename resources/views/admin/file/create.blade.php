@@ -48,7 +48,7 @@
         dictDefaultMessage: "Arrastra aquí las imágenes que quieras subir",
         acceptedFiles: "image/*",
         maxFilesize: 0.1,
-        maxFiles: 4
+        maxFiles: 20
   };
 </script>
 @endsection

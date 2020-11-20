@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\File;
+
 class HomeController extends Controller
 {
     /**
@@ -13,7 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+
     }
 
     /**
@@ -23,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return "bnbb";
-        return view('admin/home');
+        $files = File::paginate(15);
+        return view('welcome', compact("files"));
     }
 }
